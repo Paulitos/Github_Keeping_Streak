@@ -21,4 +21,6 @@ Just clone this repository and do all this changes and you will have it working.
 
 And voilà you have an automated streak in github with no warnings as of September 2024. If you have any questions, feel free to ask me. 
 
+⭐ Star this repository if you found it useful 
+
 
