@@ -1,0 +1,26 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: '00 00 * * *'
+  workflow_dispatch:
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make a change and commit
+        run: |
+          echo "$(date)" > update.log
+          git config --global user.name "Your_name"
+          git config --global user.email "Your_email"
+          git add update.log
+          git commit -m "Daily update on $(date)" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Your_username/Your_repository_name.git
